@@ -6,8 +6,8 @@ function App() {
   const [filter, setFilter ]: any[] = useState('');
   return (
     <>
-      <Filter filter={filter} setFilter={setFilter} />
-      <Products filterBy={filter} />
+      <Filter />
+      <Products />
     </>
   );
 }

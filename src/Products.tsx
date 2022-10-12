@@ -1,4 +1,5 @@
 import React, { ReactElement, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 interface ProductsProperties {
   name: string,
@@ -14,10 +15,14 @@ const initialProducts: Array<ProductsProperties>  = [
   { name: "Avocado", value: 4.35 }
 ];
 
-export const Products = ({ filterBy }): ReactElement => {
+export const Products = (): ReactElement => {
+  const filterBy = useSelector(
+    state => state.productFilter.filter
+  )
+
   const [products] = useState( initialProducts )
   return(
-    <div style={{ background: 'orage' }}>
+    <div style={{ background: 'orange' }}>
       {products
         .filter((product) =>
           filterBy ? product.name.includes(filterBy) : true
